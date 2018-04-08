@@ -6,8 +6,7 @@ RUN useradd -m -s /bin/bash larry && \
         echo larry:larry | chpasswd && \
 	echo "larry ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers 
 RUN sudo -u larry bash -c 'cd ~ && git clone https://aur.archlinux.org/skypeforlinux-stable-bin.git && cd skypeforlinux-stable-bin && makepkg --noconfirm -sri' && \
-	usermod -G audio larry
-RUN echo 'export PULSE_SERVER="tcp:localhost:64713"' >> /usr/local/bin/skype-pulseaudio
+	usermod -G audio,video larry 
 USER larry
 WORKDIR /home/larry
 
