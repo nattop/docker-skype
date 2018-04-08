@@ -5,7 +5,6 @@ RUN pacman -Syu --noconfirm && \
 RUN useradd -m -g wheel -s /bin/bash larry && \
         echo larry:larry | chpasswd && \
 	echo "larry ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers 
-        
 RUN sudo -u larry bash -c 'cd ~ && git clone https://aur.archlinux.org/skypeforlinux-stable-bin.git && cd skypeforlinux-stable-bin && makepkg --noconfirm -sri' && \
 sudo -u larry bash -c 'cd ~ && git clone  https://aur.archlinux.org/skype-desktop-bin.git && cd skype-desktop-bin && makepkg --noconfirm -sri'
 
