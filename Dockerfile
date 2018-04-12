@@ -1,8 +1,5 @@
 FROM base/archlinux
-#COPY data /home/
-RUN pacman -Syu --noconfirm && \
-	pacman -S --noconfirm --needed sudo git binutils fakeroot && \
-	pacman -S --noconfirm noto-fonts libexif openjpeg ffmpeg alsa-plugins
+RUN pacman -Syu --noconfirm --noprogressbar --quiet --needed sudo git binutils fakeroot ttf-dejavu libexif openjpeg ffmpeg alsa-plugins
 RUN useradd -m -s /bin/bash larry && \
         echo larry:larry | chpasswd && \
 	echo "larry ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers 
