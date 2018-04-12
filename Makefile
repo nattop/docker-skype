@@ -3,6 +3,7 @@ uid = $(shell id -u $(USER))
 build:
 	sudo docker build -t $(name) .
 run:
+	xhost +local:docker-skype
 	sudo docker run -ti 				\
        	--rm 						\
        	--shm-size=256m 				\
@@ -13,5 +14,6 @@ run:
 	-v /run/dbus/:/run/dbus/:rw 			\
 	-v /run/user/$(uid)/pulse:/run/user/1000/pulse 	\
 	--name docker-skype 				\
+	--hostname docker-skype				\
 	$(name) bash
 
