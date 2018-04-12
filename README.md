@@ -6,9 +6,6 @@ To build:
 `make`
 
 To start skype:
-```
-xhost +local:
-make start
-```
+`make run`
 and from inside the container run
 `skypeforlinux`
