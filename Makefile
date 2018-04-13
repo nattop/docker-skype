@@ -8,6 +8,7 @@ run:
        	--rm 						\
        	--shm-size=256m 				\
 	-e DISPLAY=unix$(DISPLAY) 			\
+	-e PULSE_SERVER=unix:/run/user/$(uid)/pulse/native	\
 	-v /etc/localtime:/etc/localtime:ro		\
        	-v /tmp/.X11-unix:/tmp/.X11-unix 		\
 	-v /run/dbus/:/run/dbus/:rw 			\
