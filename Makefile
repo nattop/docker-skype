@@ -7,7 +7,6 @@ run:
 	sudo docker run -ti 				\
        	--rm 						\
        	--shm-size=256m 				\
-	--device /dev/snd 				\
 	-e DISPLAY=unix$(DISPLAY) 			\
 	-v /etc/localtime:/etc/localtime:ro		\
        	-v /tmp/.X11-unix:/tmp/.X11-unix 		\
