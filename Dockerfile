@@ -1,6 +1,7 @@
 FROM base/archlinux
+ARG uid
 RUN pacman -Syu --noconfirm --noprogressbar --quiet --needed sudo git binutils fakeroot ttf-dejavu libexif openjpeg ffmpeg alsa-plugins
-RUN useradd -m -s /bin/bash larry && \
+RUN useradd -u $uid -m -s /bin/bash larry && \
         echo larry:larry | chpasswd && \
 	echo "larry ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers 
 RUN sudo -u larry bash -c 'cd ~ && git clone https://aur.archlinux.org/skypeforlinux-stable-bin.git && cd skypeforlinux-stable-bin && makepkg --noconfirm -sri' 
